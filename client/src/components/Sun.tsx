@@ -15,7 +15,7 @@ export function Sun() {
   return (
     <mesh ref={sunRef} position={[0, 0, 0]}>
       <sphereGeometry args={[5, 32, 32]} />
-      <meshBasicMaterial 
+      <meshStandardMaterial 
         color="#FDB813"
         emissive="#FDB813"
         emissiveIntensity={0.5}
