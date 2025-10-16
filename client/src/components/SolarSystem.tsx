@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { Group } from "three";
 import { Sun } from "./Sun";
 import { Planet } from "./Planet";
+import { AsteroidBelt } from "./AsteroidBelt";
 import { planetData } from "../data/planetData";
 
 export function SolarSystem() {
@@ -19,6 +20,9 @@ export function SolarSystem() {
     <group ref={systemRef}>
       {/* Sun at the center */}
       <Sun />
+      
+      {/* Asteroid Belt */}
+      <AsteroidBelt />
       
       {/* Planets */}
       {planetData.map((planet) => (

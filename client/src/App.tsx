@@ -3,6 +3,7 @@ import { Suspense, useState } from "react";
 import { OrbitControls, Html } from "@react-three/drei";
 import { SolarSystem } from "./components/SolarSystem";
 import { PlanetInfo } from "./components/PlanetInfo";
+import { ComparisonMode } from "./components/ComparisonMode";
 import { Starfield } from "./components/Starfield";
 import { useSolarSystem } from "./lib/stores/useSolarSystem";
 import { useIsMobile } from "./hooks/use-is-mobile";
@@ -61,6 +62,7 @@ function App() {
 
       {/* UI Overlay */}
       {selectedPlanet && <PlanetInfo />}
+      <ComparisonMode />
       
       {/* Title */}
       <div className="absolute top-4 left-4 z-10">

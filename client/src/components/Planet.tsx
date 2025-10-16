@@ -4,6 +4,7 @@ import { Mesh, Group, Vector3 } from "three";
 import * as THREE from "three";
 import { useSolarSystem } from "../lib/stores/useSolarSystem";
 import { PlanetData } from "../data/planetData";
+import { Moon } from "./Moon";
 
 interface PlanetProps {
   planetData: PlanetData;
@@ -69,12 +70,15 @@ export function Planet({ planetData }: PlanetProps) {
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
           scale={hovered ? 1.2 : 1}
+          rotation={[0, 0, (planetData.axialTilt * Math.PI) / 180]}
         >
-          <sphereGeometry args={[planetData.size, 16, 16]} />
-          <meshLambertMaterial 
+          <sphereGeometry args={[planetData.size, 32, 32]} />
+          <meshStandardMaterial 
             color={planetData.color}
             emissive={planetData.color}
             emissiveIntensity={selectedPlanet?.name === planetData.name ? 0.2 : 0}
+            metalness={0.3}
+            roughness={0.7}
           />
         </mesh>
 
@@ -89,6 +93,18 @@ export function Planet({ planetData }: PlanetProps) {
             />
           </mesh>
         )}
+
+        {/* Moons */}
+        {planetData.moons?.map((moon) => (
+          <Moon
+            key={moon.name}
+            size={moon.size}
+            distance={moon.distance}
+            orbitSpeed={moon.orbitSpeed}
+            color={moon.color}
+            name={moon.name}
+          />
+        ))}
       </group>
     </group>
   );
