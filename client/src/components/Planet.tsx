@@ -76,9 +76,9 @@ export function Planet({ planetData }: PlanetProps) {
           <meshStandardMaterial 
             color={planetData.color}
             emissive={planetData.color}
-            emissiveIntensity={selectedPlanet?.name === planetData.name ? 0.2 : 0}
-            metalness={0.3}
-            roughness={0.7}
+            emissiveIntensity={selectedPlanet?.name === planetData.name ? 0.4 : 0.15}
+            metalness={0.2}
+            roughness={0.5}
           />
         </mesh>
 

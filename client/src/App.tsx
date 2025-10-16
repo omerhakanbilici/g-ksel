@@ -31,8 +31,9 @@ function App() {
         <color attach="background" args={["#000000"]} />
         
         {/* Lighting */}
-        <ambientLight intensity={0.1} />
-        <pointLight position={[0, 0, 0]} intensity={2} color="#FDB813" />
+        <ambientLight intensity={0.4} />
+        <pointLight position={[0, 0, 0]} intensity={3} color="#FDB813" />
+        <directionalLight position={[10, 10, 10]} intensity={0.5} />
         
         <Suspense fallback={
           <Html center>

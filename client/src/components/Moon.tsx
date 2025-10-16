@@ -30,8 +30,10 @@ export function Moon({ size, distance, orbitSpeed, color, name }: MoonProps) {
         <sphereGeometry args={[size, 12, 12]} />
         <meshStandardMaterial 
           color={color}
+          emissive={color}
+          emissiveIntensity={0.1}
           metalness={0.2}
-          roughness={0.8}
+          roughness={0.6}
         />
       </mesh>
     </group>
